@@ -1,6 +1,6 @@
-node default{
-  file { '/tmp/README'
+node default {
+  file { '/root/README':
     ensure => file,
-    content => 'This is first resource file',
+    content => 'This is a readme',
   }
 }
