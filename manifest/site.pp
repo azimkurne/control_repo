@@ -1,5 +1,5 @@
 node default{
-  file { '/root/README':
+  file { '/tmp/README':
     ensure => file,
     content => 'This is first resource file',
   }
