@@ -1,0 +1,12 @@
+[Unit]
+Description=Mineraft server
+
+Wants=network.target
+After=network.targer
+
+[Service]
+WorkingDirectory=<%= $install_dir %>
+ExecStart=/usr/bin/java -Xms512M -Xms32M -jar server.jar nogui
+
+[Install]
+WantedBy=multi-user.target
