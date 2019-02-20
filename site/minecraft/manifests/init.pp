@@ -2,7 +2,7 @@ class minecraft {
   file { '/opt/minecraft':
     ensure => diretory,
   }
-  file { '/opt/minecraft/server.jar'
+  file { '/opt/minecraft/server.jar':
     ensure => file,
     source => 'https://launcher.mojang.com/v1/objects/3737db93722a9e39eeada7c27e7aca28b144ffa7/server.jar',
   }
@@ -13,8 +13,12 @@ class minecraft {
    ensure => file,
    content => 'eula=true',
   }
-  file { '/etc/systemd/system/minecraft.service'
+  file { '/etc/systemd/system/minecraft.service':
     ensure => file,
     source => 'puppet::///modules/minecraft/minecraft.service',
+  }
+  service { 'minecraft':
+    ensure => running,
+    enable => true,
   }
 }
