@@ -1,26 +1,22 @@
 node default {
- 
- file { '/tmp/resource_file_test.txt':
-    ensure  => file,
-    content => 'This is a resource file creation testing',
-    owner   => 'root',
-  }
- 
 }
 
 
 node 'master.puppet.vm' {
 
-  include role::master_server
-  file { '/root/README':
-     ensure  => file,
-     content => "Welcome to ${fqdn}\n",
-  }
-   file { '/tmp/resource_file_test.txt':
+ file { '/tmp/resource_file_test.txt':
     ensure  => file,
     content => 'This is a resource file creation testing',
     owner   => 'root',
   }
+  
+  include role::master_server
+  
+  file { '/root/README':
+     ensure  => file,
+     content => "Welcome to ${fqdn}\n",
+  }
+   
 }
 
 
